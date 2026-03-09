@@ -1,0 +1,31 @@
+{
+  "tissue": "Liver",
+  "cfde_logo": "assets/cfde-logo.png",
+  "tissue_logo": "assets/tissue-logo.png",
+  "cfde_wheel": "assets/cfde-wheel.png",
+  "nih_logo": "assets/nih-logo.png",
+  "drc_logo": "assets/drc-logo.png",
+  "kc_logo": "assets/kc-logo.png",
+  "menu": [
+    {
+      "label": "Dashboard",
+      "path": "/dashboard",
+      "submenu": [
+        { "label": "Overview", "path": "/dashboard/overview" },
+        { "label": "Analytics", "path": "/dashboard/analytics" }
+      ]
+    },
+    {
+      "label": "Reports",
+      "path": "/reports"
+    },
+    {
+      "label": "Admin",
+      "path": "/admin",
+      "submenu": [
+        { "label": "Users", "path": "/admin/users" },
+        { "label": "Settings", "path": "/admin/settings" }
+      ]
+    }
+  ]
+}
