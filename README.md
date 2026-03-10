@@ -31,7 +31,7 @@ The shell loads a shared `config.json`, builds the header/footer using **DOM API
         <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js"></script>
     </head>
     <body>
-        <div id="site-header" data-config-url="/config.json"></div>
+        <div id="site-header" data-config-url="/config/site-config.json"></div>
 
         <!-- Your app content — the shell never touches this -->
         <div id="app"></div>
@@ -42,6 +42,8 @@ The shell loads a shared `config.json`, builds the header/footer using **DOM API
 ```
 
 That's it. The shell auto-initializes on `DOMContentLoaded`.
+
+> **Note:** The shell uses `fetch()` to load config, so you must serve your HTML over `http://` — opening the file directly (`file://`) won't work. For local testing, run `npm run dev` or any static server (e.g. `npx serve .`).
 
 ### 2. Serve a shared config
 
@@ -97,7 +99,7 @@ In `public/index.html` (CRA) or `index.html` (Vite):
     <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js"></script>
 </head>
 <body>
-    <div id="site-header" data-config-url="/config.json"></div>
+    <div id="site-header" data-config-url="/config/site-config.json"></div>
     <div id="root"></div>
     <div id="site-footer"></div>
 </body>
@@ -114,7 +116,7 @@ In `index.html`:
     <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js"></script>
 </head>
 <body>
-    <div id="site-header" data-config-url="/config.json"></div>
+    <div id="site-header" data-config-url="/config/site-config.json"></div>
     <div id="app"></div>
     <div id="site-footer"></div>
 </body>
@@ -131,7 +133,7 @@ In `src/index.html`:
     <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js"></script>
 </head>
 <body>
-    <div id="site-header" data-config-url="/config.json"></div>
+    <div id="site-header" data-config-url="/config/site-config.json"></div>
     <app-root></app-root>
     <div id="site-footer"></div>
 </body>
@@ -152,7 +154,7 @@ export default function Document() {
                 <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js" />
             </Head>
             <body>
-                <div id="site-header" data-config-url="/config.json" />
+                <div id="site-header" data-config-url="/config/site-config.json" />
                 <Main />
                 <div id="site-footer" />
                 <NextScript />
@@ -171,7 +173,7 @@ export default function Document() {
         <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js"></script>
     </head>
     <body>
-        <div id="site-header" data-config-url="/config.json"></div>
+        <div id="site-header" data-config-url="/config/site-config.json"></div>
 
         <main>
             <h1>My Static Page</h1>
