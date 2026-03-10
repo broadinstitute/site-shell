@@ -1,3 +1,7 @@
+# Extras
+dist/assets
+dist/config
+
 # Dependencies
 node_modules/
 

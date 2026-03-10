@@ -18,8 +18,17 @@ export async function initShell() {
       resolveAsset('config/site-config.json');
     const config = await loadConfig(configUrl);
 
-    if (headerEl) renderHeader(headerEl, config);
-    if (footerEl) renderFooter(footerEl, config);
+    if (headerEl) {
+      renderHeader(headerEl, config);
+
+      const wrapper = headerEl.parentElement;
+      if(wrapper && !wrapper.classList.contains('site-shell')){
+        wrapper.classList.add('site-shell');
+      }
+    }
+    if (footerEl) {
+      renderFooter(footerEl, config);
+    }
   } catch (err) {
     console.error('[site-shell] Failed to initialize:', err);
   }
