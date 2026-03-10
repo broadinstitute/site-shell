@@ -1,12 +1,12 @@
 {
     "assets_note": "make sure to host assets aheads of time and use absolute urls for paths",
 
-    "cfde_logo": "assets/cfde.png",
-    "tissue_logo": "assets/liver.png",
-    "cfde_wheel": "assets/cfde_unified_icon.png",
-    "drc_logo": "assets/drc_portrait.png",
-    "kc_logo": "assets/cfde_kc_logo_c.png",
-    "nih_logo": "assets/NIH_logo.png",
+    "cfde_logo": "/assets/cfde.png",
+    "tissue_logo": "/assets/liver.png",
+    "cfde_wheel": "/assets/cfde_unified_icon.png",
+    "drc_logo": "/assets/drc_portrait.png",
+    "kc_logo": "/assets/cfde_kc_logo_c.png",
+    "nih_logo": "/assets/NIH_logo.png",
 
     "tissue": "Liver",
 

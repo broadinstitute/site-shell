@@ -50,12 +50,12 @@ All apps point to the same config URL (typically served by a reverse proxy):
 ```json
 {
     "tissue": "Liver",
-    "cfde_logo": "assets/cfde.png",
-    "tissue_logo": "assets/liver.png",
-    "cfde_wheel": "assets/cfde_unified_icon.png",
-    "nih_logo": "assets/NIH_logo.png",
-    "drc_logo": "assets/drc_portrait.png",
-    "kc_logo": "assets/cfde_kc_logo_c.png",
+    "cfde_logo": "/assets/cfde.png",
+    "tissue_logo": "/assets/liver.png",
+    "cfde_wheel": "/assets/cfde_unified_icon.png",
+    "nih_logo": "/assets/NIH_logo.png",
+    "drc_logo": "/assets/drc_portrait.png",
+    "kc_logo": "/assets/cfde_kc_logo_c.png",
     "footer": "© Broad Institute",
     "menu": [
         {
