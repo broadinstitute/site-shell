@@ -4,8 +4,7 @@ node_modules/
 # macOS system files
 .DS_Store
 
-# Build output
-dist/
+# Build output (dist/ is tracked for CDN access via jsdelivr GitHub proxy)
 
 # Logs
 *.log

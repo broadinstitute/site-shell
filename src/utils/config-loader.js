@@ -38,6 +38,7 @@ function validateConfig(config) {
     nih_logo: config.nih_logo || '',
     drc_logo: config.drc_logo || '',
     kc_logo: config.kc_logo || '',
+    footer: config.footer || '',
   };
 }
 
@@ -51,5 +52,6 @@ function getDefaultConfig() {
     nih_logo: '',
     drc_logo: '',
     kc_logo: '',
+    footer: '',
   };
 }

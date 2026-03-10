@@ -15,7 +15,6 @@ export async function initShell() {
   try {
     const configUrl =
       headerEl?.getAttribute('data-config-url') ||
-      headerEl?.dataset.config ||
       resolveAsset('config/site-config.json');
     const config = await loadConfig(configUrl);
 

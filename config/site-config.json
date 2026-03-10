@@ -1,31 +1,124 @@
 {
-  "tissue": "Liver",
-  "cfde_logo": "assets/cfde-logo.png",
-  "tissue_logo": "assets/tissue-logo.png",
-  "cfde_wheel": "assets/cfde-wheel.png",
-  "nih_logo": "assets/nih-logo.png",
-  "drc_logo": "assets/drc-logo.png",
-  "kc_logo": "assets/kc-logo.png",
-  "menu": [
-    {
-      "label": "Dashboard",
-      "path": "/dashboard",
-      "submenu": [
-        { "label": "Overview", "path": "/dashboard/overview" },
-        { "label": "Analytics", "path": "/dashboard/analytics" }
-      ]
-    },
-    {
-      "label": "Reports",
-      "path": "/reports"
-    },
-    {
-      "label": "Admin",
-      "path": "/admin",
-      "submenu": [
-        { "label": "Users", "path": "/admin/users" },
-        { "label": "Settings", "path": "/admin/settings" }
-      ]
-    }
-  ]
+    "assets_note": "make sure to host assets aheads of time and use absolute urls for paths",
+
+    "cfde_logo": "assets/cfde.png",
+    "tissue_logo": "assets/liver.png",
+    "cfde_wheel": "assets/cfde_unified_icon.png",
+    "drc_logo": "assets/drc_portrait.png",
+    "kc_logo": "assets/cfde_kc_logo_c.png",
+    "nih_logo": "assets/NIH_logo.png",
+
+    "tissue": "Liver",
+
+    "menu": [
+        {
+            "label": "About",
+            "path": "#about",
+            "submenu": [
+                {
+                    "label": "About the Portal",
+                    "path": "#about-the-portal"
+                },{
+                    "label": "Consortium",
+                    "path": "#consortium"
+                },{
+                    "label": "Governance",
+                    "path": "#governance"
+                }
+            ]
+        },{
+            "label": "Liver Atlas",
+            "submenu": [
+                {
+                    "label": "Cell Atlas",
+                    "path": "#cell-atlas"
+                },{
+                    "label": "Functional Atlas",
+                    "path": "#functional-atlas"
+                },{
+                    "label": "Disease Atlas",
+                    "path": "#disease-atlas"
+                }
+            ]
+        },{
+            "label": "Liver Insights",
+            "submenu": [
+                {
+                    "label": "Use Cases",
+                    "path": "#use-cases"
+                },{
+                    "label": "Liver-REVEAL",
+                    "path": "#reveal"
+                },{
+                    "label": "Hypothesis Engine",
+                    "path": "#hypothesis-engine"
+                }
+            ]
+        },{
+            "label": "Data and Resources",
+            "submenu": [
+                {
+                    "label": "Datasets",
+                    "path": "#datasets"
+                },{
+                    "label": "Data Model",
+                    "path": "#data-model"
+                },{
+                    "label": "Knowledge Graph",
+                    "path": "#knowledge-graph"
+                },{
+                    "label": "Ontologies",
+                    "path": "#ontologies"
+                },{
+                    "label": "Standards",
+                    "path": "#standards"
+                },{
+                    "label": "APIs",
+                    "path": "#apis"
+                },{
+                    "label": "Workflows",
+                    "path": "#workflows"
+                },{
+                    "label": "Controlled Vocabulary",
+                    "path": "#controlled-vocabulary"
+                },{
+                    "label": "Core Entities",
+                    "path": "#core-entities"
+                }
+            ]
+        },{
+            "label": "Connect",
+            "submenu": [
+                {
+                    "label": "Publications",
+                    "path": "#publications"
+                },{
+                    "label": "Events",
+                    "path": "#events"
+                },{
+                    "label": "Outreach",
+                    "path": "#outreach"
+                },{
+                    "label": "Contact",
+                    "path": "#Contact"
+                }
+            ]
+        },{
+            "label": "Help",
+            "submenu": [
+                {
+                    "label": "Tutorials",
+                    "path": "#tutorials"
+                },{
+                    "label": "Documentation",
+                    "path": "#documentation"
+                },{
+                    "label": "FAQ",
+                    "path": "#faq"
+                }
+            ]
+        }
+    ],
+
+    "footer": "© Broad Institute"
 }
