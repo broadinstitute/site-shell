@@ -197,16 +197,16 @@
     .menu-item-wrapper.active .menu-item,
     .menu-item-wrapper:has(.submenu-item.active) .menu-item{
         background: var(--cfde-blue);
-        color:white;
+        color:white !important;
     }
     .menu-item,
     .submenu-item{
         cursor: pointer;
         font-size: .9em;
-        color: var(--cfde-blue);
+        color: var(--cfde-blue) !important;
     }
     .submenu-item{
-        color: white;
+        color: white !important;
         padding: 5px;
     }
     .top-menu .menu-item{
@@ -244,8 +244,9 @@
     a.submenu-item:visited{
         color: white;
     }
-    a.submenu-item:hover{
-        color: var(--cfde-lite-blue);
+    a.submenu-item:hover,
+    a.submenu-item.active{
+        text-decoration: underline;
     }
 
     .hero-title{
@@ -388,7 +389,7 @@
     }
     .footer-menu a,
     .footer-menu a:visited{
-        color: white;
+        color: white !important;
         text-decoration: none;
     }
     .footer-menu a:hover{
