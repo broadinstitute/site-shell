@@ -16,18 +16,20 @@ export async function initShell() {
     const configUrl =
       headerEl?.getAttribute('data-config-url') ||
       resolveAsset('config/site-config.json');
+
     const config = await loadConfig(configUrl);
 
     if (headerEl) {
-      renderHeader(headerEl, config);
-
+      headerEl.innerHTML = renderHeader(config);
+      //add '.cfde__site-shell' class to parent element of header/footer
+      //this is needed for proper alignment of footer to bottom of page
       const wrapper = headerEl.parentElement;
-      if(wrapper && !wrapper.classList.contains('site-shell')){
-        wrapper.classList.add('site-shell');
+      if(wrapper && !wrapper.classList.contains('cfde__site-shell')){
+        wrapper.classList.add('cfde__site-shell');
       }
     }
     if (footerEl) {
-      renderFooter(footerEl, config);
+      footerEl.innerHTML = renderFooter(config);
     }
   } catch (err) {
     console.error('[site-shell] Failed to initialize:', err);

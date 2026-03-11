@@ -16,7 +16,7 @@ A shared, config-driven header and footer shell for multi-team web applications.
 └─────────────────────────────────┘
 ```
 
-The shell loads a shared `config.json`, builds the header/footer using **DOM API only** (no `innerHTML` — XSS-safe), and injects CSS scoped under `.site-shell` (no global resets that break your app).
+The shell loads a shared `site-config.json`, builds the header/footer and injects CSS scoped under `.cfde__site-shell` (no global resets that break your app).
 
 ---
 
@@ -31,7 +31,7 @@ The shell loads a shared `config.json`, builds the header/footer using **DOM API
         <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js"></script>
     </head>
     <body>
-        <div id="site-header" data-config-url="/config/site-config.json"></div>
+        <div id="site-header"></div>
 
         <!-- Your app content — the shell never touches this -->
         <div id="app"></div>
@@ -47,17 +47,17 @@ That's it. The shell auto-initializes on `DOMContentLoaded`.
 
 ### 2. Serve a shared config
 
-All apps point to the same config URL (typically served by a reverse proxy):
+All apps point to the same config URL:
 
 ```json
 {
     "tissue": "Liver",
-    "cfde_logo": "/assets/cfde.png",
-    "tissue_logo": "/assets/liver.png",
-    "cfde_wheel": "/assets/cfde_unified_icon.png",
-    "nih_logo": "/assets/NIH_logo.png",
-    "drc_logo": "/assets/drc_portrait.png",
-    "kc_logo": "/assets/cfde_kc_logo_c.png",
+    "cfde_logo": "assets/cfde.png",
+    "tissue_logo": "assets/liver.png",
+    "cfde_wheel": "assets/cfde_unified_icon.png",
+    "nih_logo": "assets/NIH_logo.png",
+    "drc_logo": "assets/drc_portrait.png",
+    "kc_logo": "assets/cfde_kc_logo_c.png",
     "footer": "© Broad Institute",
     "menu": [
         {
@@ -99,7 +99,7 @@ In `public/index.html` (CRA) or `index.html` (Vite):
     <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js"></script>
 </head>
 <body>
-    <div id="site-header" data-config-url="/config/site-config.json"></div>
+    <div id="site-header"></div>
     <div id="root"></div>
     <div id="site-footer"></div>
 </body>
@@ -116,7 +116,7 @@ In `index.html`:
     <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js"></script>
 </head>
 <body>
-    <div id="site-header" data-config-url="/config/site-config.json"></div>
+    <div id="site-header"></div>
     <div id="app"></div>
     <div id="site-footer"></div>
 </body>
@@ -133,7 +133,7 @@ In `src/index.html`:
     <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js"></script>
 </head>
 <body>
-    <div id="site-header" data-config-url="/config/site-config.json"></div>
+    <div id="site-header"></div>
     <app-root></app-root>
     <div id="site-footer"></div>
 </body>
@@ -154,7 +154,7 @@ export default function Document() {
                 <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js" />
             </Head>
             <body>
-                <div id="site-header" data-config-url="/config/site-config.json" />
+                <div id="site-header" />
                 <Main />
                 <div id="site-footer" />
                 <NextScript />
@@ -173,7 +173,7 @@ export default function Document() {
         <script src="https://cdn.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js"></script>
     </head>
     <body>
-        <div id="site-header" data-config-url="/config/site-config.json"></div>
+        <div id="site-header"></div>
 
         <main>
             <h1>My Static Page</h1>
@@ -331,7 +331,7 @@ Load the shell alongside your app and verify no style conflicts:
     </style>
 </head>
 <body>
-    <div id="site-header" data-config-url="/config/site-config.json"></div>
+    <div id="site-header"></div>
     <div id="app">
         <div class="nav">App nav — should be red with 100px padding</div>
         <div class="menu-item">App item — should be green 3em</div>
@@ -366,7 +366,7 @@ Navigate to a URL matching a menu path (e.g. `/dashboard/overview`):
 - **No Shadow DOM** — the shell injects into plain `<div>` containers so it works everywhere
 - **Config-driven** — all content (labels, logos, links) comes from one shared JSON
 - **XSS-safe** — all rendering uses `document.createElement` + `textContent` (never `innerHTML`)
-- **CSS-scoped** — BEM naming under `.site-shell`, no global resets
+- **CSS-scoped** — BEM naming under `.cfde__site-shell`, no global resets
 - **Framework-agnostic** — plain JS, works with any tech stack
 - **Independent deploys** — each team deploys their own app; the shell script is loaded from CDN/npm
 

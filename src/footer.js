@@ -1,159 +1,72 @@
-import { resolveAsset } from "./utils/resolve-asset.js";
-import { sanitizeUrl } from "./utils/sanitize-url.js";
 
-function createFooterMenu(menu) {
-    const menuContainer = document.createElement("div");
-    menuContainer.className = "site-shell__footer-menu";
+import { resolveAsset } from "./utils/resolve-asset.js"
+import { escapeHtml, sanitizeUrl } from "./utils/sanitize-url.js"
 
-    for (const item of menu) {
-        const col = document.createElement("div");
-        col.style.cssText = "display:flex; flex-direction:column; gap:3px";
+function buildMenu(menu) {
+    //build the menu
+    const items = menu.map(item => {
+        const submenu = item.submenu?.length
+            ? `
+            ${item.submenu.map(sub => `
+              <a class="" href="${escapeHtml(sanitizeUrl(sub.path))}">
+                  ${escapeHtml(sub.label)}
+              </a>
+            `).join("")}
+            `
+            : ""
 
-        const heading = document.createElement("a");
-        heading.style.fontWeight = "bold";
-        heading.textContent = item.label || "";
-        const safeItemPath = sanitizeUrl(item.path);
-        if (safeItemPath) heading.href = safeItemPath;
-        col.appendChild(heading);
-
-        if (item.submenu?.length) {
-            for (const sub of item.submenu) {
-                const subLink = document.createElement("a");
-                subLink.textContent = sub.label || "";
-                const safeSubPath = sanitizeUrl(sub.path);
-                if (safeSubPath) subLink.href = safeSubPath;
-                col.appendChild(subLink);
+        return `
+        <div style="display:flex; flex-direction:column; gap:3px">
+            ${
+                item.path
+                ? `<a style="font-weight:bold" href="${escapeHtml(sanitizeUrl(item.path))}">${escapeHtml(item.label)}</a>`
+                : `<a style="font-weight:bold">${escapeHtml(item.label)}</a>`
             }
-        }
+            ${submenu}
+        </div>
+        `
+    }).join("")
 
-        menuContainer.appendChild(col);
-    }
-
-    return menuContainer;
+    return `
+    <div class="footer-menu">
+        ${items}
+    </div>
+    `
 }
 
-/**
- * Renders the footer into the given container element using DOM API (no innerHTML).
- */
-export function renderFooter(container, config) {
-    container.classList.add("site-shell");
-
-    const footer = document.createElement("footer");
-    footer.className = "site-shell__footer-container";
-
-    // Footer nav section
-    const footerNav = document.createElement("div");
-    footerNav.className = "site-shell__footer-nav";
-
-    const descCol = document.createElement("div");
-    const descTitle = document.createElement("div");
-    descTitle.className = "site-shell__bold";
-    descTitle.textContent = config.tissue
-        ? `CFDE ${config.tissue} Resource`
-        : "CFDE Resource";
-    descCol.appendChild(descTitle);
-    const descText = document.createElement("div");
-    descText.textContent =
-        "An NIH-funded research initiative providing comprehensive liver research resources, data visualization tools, and collaborative research infrastructure.";
-    descCol.appendChild(descText);
-    footerNav.appendChild(descCol);
-
-    footerNav.appendChild(createFooterMenu(config.menu));
-    footer.appendChild(footerNav);
-
-    // Footer inset section
-    const inset = document.createElement("div");
-    inset.className = "site-shell__footer-inset";
-
-    // NIH logo
-    if (config.nih_logo) {
-        const nihWrap = document.createElement("div");
-        nihWrap.style.cssText = "background: white; height:50px";
-        const nihImg = document.createElement("img");
-        nihImg.src = resolveAsset(config.nih_logo);
-        nihImg.style.height = "50px";
-        nihImg.alt = "NIH Logo";
-        nihWrap.appendChild(nihImg);
-        inset.appendChild(nihWrap);
-    }
-
-    // Award text
-    const awardCol = document.createElement("div");
-    awardCol.style.cssText =
-        "display:flex; flex-direction:column; align-items:center; gap:10px; font-size:.9em";
-    const awardText = document.createElement("div");
-    awardText.textContent =
-        "CFDE " +
-        (config.tissue || "") +
-        " Resource is supported by the NIH Common Fund as a part of the Common Fund Data Ecosystem.";
-    const awardBreak = document.createElement("br");
-    awardText.appendChild(awardBreak);
-
-    const awardPrefix = document.createTextNode("Award Numbers ");
-    awardText.appendChild(awardPrefix);
-
-    const award1 = document.createElement("a");
-    award1.href = "https://reporter.nih.gov/project-details/OT2OD036435";
-    award1.target = "_blank";
-    award1.rel = "noopener noreferrer";
-    award1.textContent = "OT2OD036435";
-    awardText.appendChild(award1);
-
-    awardText.append(" and ");
-
-    const award2 = document.createElement("a");
-    award2.href = "https://reporter.nih.gov/project-details/OT2OD036440";
-    award2.target = "_blank";
-    award2.rel = "noopener noreferrer";
-    award2.textContent = "OT2OD036440";
-    awardText.appendChild(award2);
-
-    awardText.append(".");
-    awardCol.appendChild(awardText);
-    inset.appendChild(awardCol);
-
-    // Partner logos
-    const partnerRow = document.createElement("div");
-    partnerRow.style.cssText = "display:flex; align-items:center; gap:10px";
-
-    if (config.drc_logo) {
-        const drcLink = document.createElement("a");
-        drcLink.href = "https://data.cfde.cloud/";
-        drcLink.target = "_blank";
-        drcLink.rel = "noopener noreferrer";
-        const drcImg = document.createElement("img");
-        drcImg.src = resolveAsset(config.drc_logo);
-        drcImg.style.height = "50px";
-        drcImg.alt = "DRC Logo";
-        drcLink.appendChild(drcImg);
-        partnerRow.appendChild(drcLink);
-    }
-
-    if (config.kc_logo) {
-        const kcLink = document.createElement("a");
-        kcLink.href = "https://cfdeknowledge.org/";
-        kcLink.target = "_blank";
-        kcLink.rel = "noopener noreferrer";
-        const kcImg = document.createElement("img");
-        kcImg.src = resolveAsset(config.kc_logo);
-        kcImg.style.height = "50px";
-        kcImg.alt = "Knowledge Center Logo";
-        kcLink.appendChild(kcImg);
-        partnerRow.appendChild(kcLink);
-    }
-
-    inset.appendChild(partnerRow);
-    footer.appendChild(inset);
-
-    // Copyright
-    const copyright = document.createElement("div");
-    copyright.className = "site-shell__copyright";
-    copyright.textContent =
-        config.footer ||
-        "\u00A9 CFDE " +
-            (config.tissue || "") +
-            " Resource. A project of the NIH Common Fund Data Ecosystem. All rights reserved.";
-    footer.appendChild(copyright);
-
-    container.appendChild(footer);
+export function renderFooter(config) {
+  return `
+    <footer class="footer-container">
+      <div class="footer-nav">
+          <div>
+              <div class="bold">CFDE Liver Resource</div>
+              <div>
+                  An NIH-funded research initiative providing comprehensive liver research resources, data visualization tools, and collaborative research infrastructure.
+              </div>
+          </div>
+          ${buildMenu(config.menu)}
+      </div>
+      <div class="footer-inset">
+          <div style="background: white; height:50px">
+              <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.nih_logo)))}" style="height: 50px;"/>
+          </div>
+          <div class="f-col fill-width align-v-center" style="gap:10px; font-size: .9em;">
+              <div>
+                  CFDE Liver Resource is supported by the NIH Common Fund as a part of the Common Fund Data Ecosystem.<br/>Award Numbers <a href="https://reporter.nih.gov/project-details/OT2OD036435" target="_blank" rel="noopener noreferrer">OT2OD036435</a> and <a href="https://reporter.nih.gov/project-details/OT2OD036440" target="_blank" rel="noopener noreferrer">OT2OD036440</a>.
+              </div>
+          </div>
+          <div class="f-row align-v-center" style="gap:10px">
+              <a href="https://data.cfde.cloud/" target="_blank">
+                <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.drc_logo)))}"  style="height:50px"/>
+              </a>
+              <a href="https://cfdeknowledge.org/" target="_blank">
+                <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.kc_logo)))}" style="height:50px"/>
+              </a>
+          </div>
+      </div>
+      <div class="f-row fill-width align-h-center" style="font-size: 0.8em; text-align: center;">
+          ©2026 CFDE Liver Resource. A project of the NIH Common Fund Data Ecosystem. All rights reserved.
+      </div>
+  </footer>
+  `
 }
