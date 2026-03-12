@@ -64,7 +64,7 @@ export function renderHeader(config) {
                 <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.cfde_logo)))}"/>
                 <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.tissue_logo)))}"/>
             </div>
-            <a class="nav-title" href="#">
+            <a class="nav-title" href="/">
                 <!--<img src="images/title.png" />-->
                 <div class="title-group">
                     <div class="title-cfde">CFDE</div>

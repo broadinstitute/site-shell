@@ -29,7 +29,7 @@
             "submenu": [
                 {
                     "label": "Cell Atlas",
-                    "path": "#cell-atlas"
+                    "path": "/cell-atlas.html"
                 },{
                     "label": "Functional Atlas",
                     "path": "#functional-atlas"
