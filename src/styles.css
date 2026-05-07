@@ -229,8 +229,6 @@
         border-top: 6px solid var(--cfde-blue);
 
         transform-origin: 50% 66.66%;
-
-        animation: spin 2s linear infinite;
     }
     .menu-item-wrapper:hover:has(.submenu)>.menu-item::after,
     .menu-item-wrapper.active:has(.submenu)>.menu-item::after,

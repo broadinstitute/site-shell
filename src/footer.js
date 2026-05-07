@@ -48,7 +48,9 @@ export function renderFooter(config) {
       </div>
       <div class="footer-inset">
           <div style="background: white; height:50px">
-              <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.nih_logo)))}" style="height: 50px;"/>
+              <a href="https://data.cfde.cloud/" target="_blank">
+                <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.drc_logo)))}"  style="height:50px"/>
+              </a>
           </div>
           <div class="f-col fill-width align-v-center" style="gap:10px; font-size: .9em;">
               <div>
@@ -56,9 +58,6 @@ export function renderFooter(config) {
               </div>
           </div>
           <div class="f-row align-v-center" style="gap:10px">
-              <a href="https://data.cfde.cloud/" target="_blank">
-                <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.drc_logo)))}"  style="height:50px"/>
-              </a>
               <a href="https://cfdeknowledge.org/" target="_blank">
                 <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.kc_logo)))}" style="height:50px"/>
               </a>
