@@ -1,4 +1,3 @@
-
 import { resolveAsset } from "./utils/resolve-asset.js"
 import { escapeHtml, sanitizeUrl } from "./utils/sanitize-url.js"
 
@@ -97,7 +96,7 @@ export function renderHeader(config) {
                 </div>
             </div>
             <div class="nav-right">
-                <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.cfde_wheel)))}" />
+                <cfde-wheel size="30"></cfde-wheel>
             </div>
         </div>
     </header>

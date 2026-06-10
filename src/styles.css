@@ -69,6 +69,11 @@
         height: 30px;
         width: auto;
     }
+    .nav-right cfde-wheel {
+        display: block;
+        width: 30px;
+        height: 30px;
+    }
 
     .nav-hamburger {
         align-self: center;

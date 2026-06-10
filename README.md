@@ -16,7 +16,7 @@ A shared, config-driven header and footer shell for multi-team web applications.
 └─────────────────────────────────┘
 ```
 
-The shell loads a shared `site-config.json`, builds the header/footer and injects CSS scoped under `.cfde__site-shell` (no global resets that break your app).
+The shell loads a shared `site-config.json`, builds the header/footer, injects the external CFDE wheel widget script for the launcher, and injects CSS scoped under `.cfde__site-shell` (no global resets that break your app).
 
 ---
 
@@ -44,6 +44,8 @@ The shell loads a shared `site-config.json`, builds the header/footer and inject
 That's it. The shell auto-initializes on `DOMContentLoaded`.
 
 > **Note:** The shell uses `fetch()` to load config, so you must serve your HTML over `http://` — opening the file directly (`file://`) won't work. For local testing, run `npm run dev` or any static server (e.g. `npx serve .`).
+>
+> To override the wheel bundle on a specific page, add `data-cfde-wheel-script="https://.../cfde-wheel.js"` to `#site-header`. If omitted, `site-shell` uses `cfde_wheel_script` from config, then falls back to the public jsDelivr build.
 
 ### 2. Serve a shared config
 
@@ -54,7 +56,7 @@ All apps point to the same config URL:
     "tissue": "Liver",
     "cfde_logo": "assets/cfde.png",
     "tissue_logo": "assets/liver.png",
-    "cfde_wheel": "assets/cfde_unified_icon.png",
+    "cfde_wheel_script": "https://cdn.jsdelivr.net/gh/broadinstitute/cfde-wheel@main/dist/cfde-wheel.js",
     "nih_logo": "assets/NIH_logo.png",
     "drc_logo": "assets/drc_portrait.png",
     "kc_logo": "assets/cfde_kc_logo_c.png",
@@ -194,7 +196,8 @@ export default function Document() {
 | `tissue`      | `string` | No       | Name displayed in the header title (e.g. `"Liver"`)                        |
 | `cfde_logo`   | `string` | No       | Path/URL to CFDE logo image                                                |
 | `tissue_logo` | `string` | No       | Path/URL to tissue-specific logo                                           |
-| `cfde_wheel`  | `string` | No       | Path/URL to CFDE wheel graphic                                             |
+| `cfde_wheel`  | `string` | No       | Legacy path/URL to the old static CFDE wheel graphic                       |
+| `cfde_wheel_script` | `string` | No | URL for the external CFDE wheel widget bundle. Defaults to the public jsDelivr build. |
 | `nih_logo`    | `string` | No       | Path/URL to NIH logo (footer)                                              |
 | `drc_logo`    | `string` | No       | Path/URL to DRC logo (footer)                                              |
 | `kc_logo`     | `string` | No       | Path/URL to Knowledge Center logo (footer)                                 |

@@ -1,5 +1,6 @@
 import { loadConfig } from './utils/config-loader.js';
 import { resolveAsset } from './utils/resolve-asset.js';
+import { ensureCfdeWheelScript } from './utils/cfde-wheel-loader.js';
 import { renderHeader } from './header.js';
 import { renderFooter } from './footer.js';
 
@@ -18,6 +19,15 @@ export async function initShell() {
       resolveAsset('config/site-config.json');
 
     const config = await loadConfig(configUrl);
+    const wheelScriptUrl =
+      headerEl?.getAttribute('data-cfde-wheel-script') ||
+      config.cfde_wheel_script;
+
+    if (headerEl) {
+      ensureCfdeWheelScript(wheelScriptUrl).catch((err) => {
+        console.error(err);
+      });
+    }
 
     if (headerEl) {
       headerEl.innerHTML = renderHeader(config);
