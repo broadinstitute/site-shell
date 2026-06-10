@@ -34,10 +34,10 @@
                     "path": "/cell-type-atlas"
                 },{
                     "label": "Single Cell Map",
-                    "path": "/single-cell-map"
+                    "path": "/single-cell-map.html"
                 },{
                     "label": "Gene Expression",
-                    "path": "/gene-expression"
+                    "path": "/gene-expression.html"
                 },{
                     "label": "Functional Atlas",
                     "path": "#"
