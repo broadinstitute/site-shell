@@ -1,14 +1,16 @@
 
 import { resolveAsset } from "./utils/resolve-asset.js"
 import { escapeHtml, sanitizeUrl } from "./utils/sanitize-url.js"
+import { resolveSiteUrl } from "./utils/site-url.js"
 
-function buildMenu(menu) {
+function buildMenu(menu, domain) {
     //build the menu
     const items = menu.map(item => {
+        const itemHref = resolveSiteUrl(item.path, domain)
         const submenu = item.submenu?.length
             ? `
             ${item.submenu.map(sub => `
-              <a class="" href="${escapeHtml(sanitizeUrl(sub.path))}">
+              <a class="" href="${escapeHtml(resolveSiteUrl(sub.path, domain))}">
                   ${escapeHtml(sub.label)}
               </a>
             `).join("")}
@@ -19,7 +21,7 @@ function buildMenu(menu) {
         <div style="display:flex; flex-direction:column; gap:3px">
             ${
                 item.path
-                ? `<a style="font-weight:bold" href="${escapeHtml(sanitizeUrl(item.path))}">${escapeHtml(item.label)}</a>`
+                ? `<a style="font-weight:bold" href="${escapeHtml(itemHref)}">${escapeHtml(item.label)}</a>`
                 : `<a style="font-weight:bold">${escapeHtml(item.label)}</a>`
             }
             ${submenu}
@@ -44,7 +46,7 @@ export function renderFooter(config) {
                   An NIH-funded research initiative providing comprehensive liver research resources, data visualization tools, and collaborative research infrastructure.
               </div>
           </div>
-          ${buildMenu(config.menu)}
+          ${buildMenu(config.menu, config.domain)}
       </div>
       <div class="footer-inset">
           <div style="background: white; height:50px">

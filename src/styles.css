@@ -251,6 +251,10 @@
     a.submenu-item.active{
         text-decoration: underline;
     }
+    a.submenu-item[href^="#"] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
 
     .hero-title{
         font-size: 2.5em; 
@@ -403,6 +407,11 @@
         text-decoration: underline;
         cursor: pointer;
     }
+    .footer-menu a[href^="#"] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
     .footer-inset{
         display:flex;
         justify-content: space-between;

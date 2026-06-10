@@ -1,4 +1,6 @@
 {
+    "domain": "cfdeliverresource.org",
+    
     "cfde_logo": "assets/cfde.png",
     "tissue_logo": "assets/liver.png",
     "cfde_wheel": "assets/cfde_unified_icon.png",
@@ -15,27 +17,33 @@
             "submenu": [
                 {
                     "label": "About the Portal",
-                    "path": "#about-the-portal"
+                    "path": "#"
                 },{
                     "label": "Consortium",
-                    "path": "#consortium"
+                    "path": "#"
                 },{
                     "label": "Governance",
-                    "path": "#governance"
+                    "path": "#"
                 }
             ]
         },{
             "label": "Liver Atlas",
             "submenu": [
                 {
-                    "label": "Cell Atlas",
-                    "path": "/cell-atlas.html"
+                    "label": "Cell Type Atlas",
+                    "path": "/cell-type-atlas"
+                },{
+                    "label": "Single Cell Map",
+                    "path": "/single-cell-map"
+                },{
+                    "label": "Gene Expression",
+                    "path": "/gene-expression"
                 },{
                     "label": "Functional Atlas",
-                    "path": "#functional-atlas"
+                    "path": "#"
                 },{
                     "label": "Disease Atlas",
-                    "path": "/disease"
+                    "path": "#"
                 }
             ]
         },{
@@ -43,13 +51,13 @@
             "submenu": [
                 {
                     "label": "Use Cases",
-                    "path": "#use-cases"
+                    "path": "#"
                 },{
                     "label": "Liver-REVEAL",
-                    "path": "#reveal"
+                    "path": "#"
                 },{
                     "label": "Hypothesis Engine",
-                    "path": "#hypothesis-engine"
+                    "path": "#"
                 }
             ]
         },{
@@ -57,31 +65,31 @@
             "submenu": [
                 {
                     "label": "Datasets",
-                    "path": "#datasets"
+                    "path": "/datasets"
                 },{
                     "label": "Data Model",
-                    "path": "#data-model"
+                    "path": "#"
                 },{
                     "label": "Knowledge Graph",
-                    "path": "#knowledge-graph"
+                    "path": "#"
                 },{
                     "label": "Ontologies",
-                    "path": "#ontologies"
+                    "path": "#"
                 },{
                     "label": "Standards",
-                    "path": "#standards"
+                    "path": "#"
                 },{
                     "label": "APIs",
-                    "path": "#apis"
+                    "path": "#"
                 },{
                     "label": "Workflows",
-                    "path": "#workflows"
+                    "path": "#"
                 },{
                     "label": "Controlled Vocabulary",
-                    "path": "#controlled-vocabulary"
+                    "path": "#"
                 },{
                     "label": "Core Entities",
-                    "path": "#core-entities"
+                    "path": "#"
                 }
             ]
         },{
@@ -89,16 +97,16 @@
             "submenu": [
                 {
                     "label": "Publications",
-                    "path": "#publications"
+                    "path": "#"
                 },{
                     "label": "Events",
-                    "path": "#events"
+                    "path": "#"
                 },{
                     "label": "Outreach",
-                    "path": "#outreach"
+                    "path": "#"
                 },{
                     "label": "Contact",
-                    "path": "#Contact"
+                    "path": "#"
                 }
             ]
         },{
@@ -106,13 +114,13 @@
             "submenu": [
                 {
                     "label": "Tutorials",
-                    "path": "#tutorials"
+                    "path": "#"
                 },{
                     "label": "Documentation",
-                    "path": "#documentation"
+                    "path": "#"
                 },{
                     "label": "FAQ",
-                    "path": "#faq"
+                    "path": "#"
                 }
             ]
         }

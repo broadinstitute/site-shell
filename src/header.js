@@ -1,5 +1,6 @@
 import { resolveAsset } from "./utils/resolve-asset.js"
 import { escapeHtml, sanitizeUrl } from "./utils/sanitize-url.js"
+import { resolveSiteUrl } from "./utils/site-url.js"
 
 function isActive (itemPath, currentUrl) {
     /*
@@ -14,16 +15,17 @@ function isActive (itemPath, currentUrl) {
     return pattern.test(currentUrl)
 }
 
-function buildMenu(menu) {
+function buildMenu(menu, domain) {
     //get current url
     const currentUrl = window.location.href;
     //build the menu
     const items = menu.map(item => {
+        const itemHref = resolveSiteUrl(item.path, domain)
         const submenu = item.submenu?.length
             ? `
             <div class="submenu">
                 ${item.submenu.map(sub => `
-                <a class="submenu-item ${isActive(sub.path, currentUrl) ? 'active' : ''}" href="${escapeHtml(sanitizeUrl(sub.path))}">
+                <a class="submenu-item ${isActive(resolveSiteUrl(sub.path, domain), currentUrl) ? 'active' : ''}" href="${escapeHtml(resolveSiteUrl(sub.path, domain))}">
                     ${escapeHtml(sub.label)}
                 </a>
                 `).join("")}
@@ -32,10 +34,10 @@ function buildMenu(menu) {
             : ""
 
         return `
-        <div class="menu-item-wrapper ${isActive(item.path, currentUrl) ? 'active' : ''}">
+        <div class="menu-item-wrapper ${isActive(itemHref, currentUrl) ? 'active' : ''}" data-path="${escapeHtml(itemHref)}">
             ${
                 item.path
-                ? `<a class="menu-item" href="${escapeHtml(sanitizeUrl(item.path))}">${escapeHtml(item.label)}</a>`
+                ? `<a class="menu-item" href="${escapeHtml(itemHref)}">${escapeHtml(item.label)}</a>`
                 : `<div class="menu-item">${escapeHtml(item.label)}</div>`
             }
             ${submenu}
@@ -63,7 +65,7 @@ export function renderHeader(config) {
                 <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.cfde_logo)))}"/>
                 <img src="${escapeHtml(sanitizeUrl(resolveAsset(config.tissue_logo)))}"/>
             </div>
-            <a class="nav-title" href="/">
+            <a class="nav-title" href="${escapeHtml(resolveSiteUrl("/", config.domain))}">
                 <!--<img src="images/title.png" />-->
                 <div class="title-group">
                     <div class="title-cfde">CFDE</div>
@@ -81,7 +83,7 @@ export function renderHeader(config) {
                 </div>
                 <div class="menu-wrapper">
                     <div class="main-menu">
-                        ${buildMenu(config.menu)}
+                        ${buildMenu(config.menu, config.domain)}
                     </div>
                     <div class="top-menu">
                         <div class="menu-item">
@@ -120,7 +122,7 @@ function updateActiveMenu() {
         link.classList.toggle("active", active)
     })
     document.querySelectorAll(".menu-item-wrapper").forEach(link => {
-        const href = link.getAttribute("href")
+        const href = link.getAttribute("data-path")
         const active = isActive(href, currentUrl);
         link.classList.toggle("active", active)
     })

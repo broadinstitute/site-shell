@@ -30,6 +30,7 @@ export async function loadConfig(url) {
 function validateConfig(config) {
   return {
     ...config,
+    domain: config.domain || '',
     tissue: config.tissue || '',
     menu: Array.isArray(config.menu) ? config.menu : [],
     cfde_logo: config.cfde_logo || '',
@@ -45,6 +46,7 @@ function validateConfig(config) {
 
 function getDefaultConfig() {
   return {
+    domain: '',
     tissue: '',
     menu: [],
     cfde_logo: '',

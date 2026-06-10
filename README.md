@@ -53,6 +53,7 @@ All apps point to the same config URL:
 
 ```json
 {
+    "domain": "cfdeliverresource.org",
     "tissue": "Liver",
     "cfde_logo": "assets/cfde.png",
     "tissue_logo": "assets/liver.png",
@@ -193,6 +194,7 @@ export default function Document() {
 
 | Field         | Type     | Required | Description                                                                |
 | ------------- | -------- | -------- | -------------------------------------------------------------------------- |
+| `domain`      | `string` | No       | Preferred site domain for nav/footer links. On matching hosts links stay relative; on other hosts they are rewritten as absolute URLs against this domain. |
 | `tissue`      | `string` | No       | Name displayed in the header title (e.g. `"Liver"`)                        |
 | `cfde_logo`   | `string` | No       | Path/URL to CFDE logo image                                                |
 | `tissue_logo` | `string` | No       | Path/URL to tissue-specific logo                                           |
