@@ -1,6 +1,7 @@
 import { loadConfig } from './utils/config-loader.js';
 import { resolveAsset } from './utils/resolve-asset.js';
 import { ensureCfdeWheelScript } from './utils/cfde-wheel-loader.js';
+import { replaceFavicon } from './utils/favicon.js';
 import { renderHeader } from './header.js';
 import { renderFooter } from './footer.js';
 
@@ -22,6 +23,8 @@ export async function initShell() {
     const wheelScriptUrl =
       headerEl?.getAttribute('data-cfde-wheel-script') ||
       config.cfde_wheel_script;
+
+    replaceFavicon('assets/liver.png');
 
     if (headerEl) {
       ensureCfdeWheelScript(wheelScriptUrl).catch((err) => {

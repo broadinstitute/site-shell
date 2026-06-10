@@ -16,7 +16,7 @@ A shared, config-driven header and footer shell for multi-team web applications.
 └─────────────────────────────────┘
 ```
 
-The shell loads a shared `site-config.json`, builds the header/footer, injects the external CFDE wheel widget script for the launcher, and injects CSS scoped under `.cfde__site-shell` (no global resets that break your app).
+The shell loads a shared `site-config.json`, builds the header/footer, replaces any existing page favicon with its bundled `liver.png` asset, injects the external CFDE wheel widget script for the launcher, and injects CSS scoped under `.cfde__site-shell` (no global resets that break your app).
 
 ---
 
