@@ -1,6 +1,6 @@
 {
     "domain": "cfdeliverresource.org",
-    
+
     "cfde_logo": "assets/cfde.png",
     "tissue_logo": "assets/liver.png",
     "cfde_wheel": "assets/cfde_unified_icon.png",
@@ -18,107 +18,133 @@
                 {
                     "label": "About the Portal",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Consortium",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Governance",
                     "path": "#"
                 }
             ]
-        },{
+        },
+        {
             "label": "Liver Atlas",
             "submenu": [
                 {
                     "label": "Cell Type Atlas",
                     "path": "/cell-type-atlas"
-                },{
+                },
+                {
                     "label": "Single Cell Map",
                     "path": "/single-cell-map.html"
-                },{
+                },
+                {
                     "label": "Gene Expression",
                     "path": "/gene-expression.html"
-                },{
+                },
+                {
                     "label": "Functional Atlas",
-                    "path": "#"
-                },{
+                    "path": "/functional-atlas.html"
+                },
+                {
                     "label": "Disease Atlas",
                     "path": "#"
                 }
             ]
-        },{
+        },
+        {
             "label": "Liver Insights",
             "submenu": [
                 {
                     "label": "Use Cases",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Liver-REVEAL",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Hypothesis Engine",
                     "path": "#"
                 }
             ]
-        },{
+        },
+        {
             "label": "Data and Resources",
             "submenu": [
                 {
                     "label": "Datasets",
                     "path": "/datasets"
-                },{
+                },
+                {
                     "label": "Data Model",
-                    "path": "#"
-                },{
+                    "path": "/liver_datamodel.html"
+                },
+                {
                     "label": "Knowledge Graph",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Ontologies",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Standards",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "APIs",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Workflows",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Controlled Vocabulary",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Core Entities",
                     "path": "#"
                 }
             ]
-        },{
+        },
+        {
             "label": "Connect",
             "submenu": [
                 {
                     "label": "Publications",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Events",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Outreach",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Contact",
                     "path": "/research.html?pageid=cfdeliver_contact"
                 }
             ]
-        },{
+        },
+        {
             "label": "Help",
             "submenu": [
                 {
                     "label": "Tutorials",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "Documentation",
                     "path": "#"
-                },{
+                },
+                {
                     "label": "FAQ",
                     "path": "#"
                 }
