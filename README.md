@@ -192,19 +192,19 @@ export default function Document() {
 
 ## Configuration Reference
 
-| Field         | Type     | Required | Description                                                                |
-| ------------- | -------- | -------- | -------------------------------------------------------------------------- |
-| `domain`      | `string` | No       | Preferred site domain for nav/footer links. On matching hosts links stay relative; on other hosts they are rewritten as absolute URLs against this domain. |
-| `tissue`      | `string` | No       | Name displayed in the header title (e.g. `"Liver"`)                        |
-| `cfde_logo`   | `string` | No       | Path/URL to CFDE logo image                                                |
-| `tissue_logo` | `string` | No       | Path/URL to tissue-specific logo                                           |
-| `cfde_wheel`  | `string` | No       | Legacy path/URL to the old static CFDE wheel graphic                       |
-| `cfde_wheel_script` | `string` | No | URL for the external CFDE wheel widget bundle. Defaults to the public jsDelivr build. |
-| `nih_logo`    | `string` | No       | Path/URL to NIH logo (footer)                                              |
-| `drc_logo`    | `string` | No       | Path/URL to DRC logo (footer)                                              |
-| `kc_logo`     | `string` | No       | Path/URL to Knowledge Center logo (footer)                                 |
-| `footer`      | `string` | No       | Custom copyright/footer text. Falls back to a default CFDE copyright line. |
-| `menu`        | `array`  | No       | Navigation menu items (see below)                                          |
+| Field               | Type     | Required | Description                                                                                                                                                |
+| ------------------- | -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `domain`            | `string` | No       | Preferred site domain for nav/footer links. On matching hosts links stay relative; on other hosts they are rewritten as absolute URLs against this domain. |
+| `tissue`            | `string` | No       | Name displayed in the header title (e.g. `"Liver"`)                                                                                                        |
+| `cfde_logo`         | `string` | No       | Path/URL to CFDE logo image                                                                                                                                |
+| `tissue_logo`       | `string` | No       | Path/URL to tissue-specific logo                                                                                                                           |
+| `cfde_wheel`        | `string` | No       | Legacy path/URL to the old static CFDE wheel graphic                                                                                                       |
+| `cfde_wheel_script` | `string` | No       | URL for the external CFDE wheel widget bundle. Defaults to the public jsDelivr build.                                                                      |
+| `nih_logo`          | `string` | No       | Path/URL to NIH logo (footer)                                                                                                                              |
+| `drc_logo`          | `string` | No       | Path/URL to DRC logo (footer)                                                                                                                              |
+| `kc_logo`           | `string` | No       | Path/URL to Knowledge Center logo (footer)                                                                                                                 |
+| `footer`            | `string` | No       | Custom copyright/footer text. Falls back to a default CFDE copyright line.                                                                                 |
+| `menu`              | `array`  | No       | Navigation menu items (see below)                                                                                                                          |
 
 ### Menu item structure
 
@@ -386,6 +386,16 @@ npm install
 npm run dev     # Start dev server at localhost:5173
 npm run build   # Build dist/site-shell.js
 ```
+
+### Purge the jsDelivr cache
+
+After pushing changes to `main`, purge the cached production bundle so consumers receive the updated script:
+
+```
+https://purge.jsdelivr.net/gh/broadinstitute/site-shell@main/dist/site-shell.js
+```
+
+Open this URL in a browser, request it with `curl`, or use the [Purge CDN cache - jsDelivr](https://www.jsdelivr.com/tools/purge) tool. jsDelivr responds after the purge request has been queued; propagation across its CDN may take a few minutes.
 
 ## License
 
