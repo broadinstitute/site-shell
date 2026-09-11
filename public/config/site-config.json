@@ -37,16 +37,16 @@
                     "path": "/cell-type-atlas"
                 },
                 {
+                    "label": "Functional Atlas",
+                    "path": "/functional-atlas.html"
+                },
+                {
                     "label": "Single Cell Map",
                     "path": "/single-cell-map.html"
                 },
                 {
                     "label": "Gene Expression",
                     "path": "/gene-expression.html"
-                },
-                {
-                    "label": "Functional Atlas",
-                    "path": "/functional-atlas.html"
                 },
                 {
                     "label": "Disease Atlas",
