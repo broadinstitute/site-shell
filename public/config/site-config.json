@@ -59,7 +59,7 @@
             "submenu": [
                 {
                     "label": "Use Cases",
-                    "path": "#"
+                    "path": "/liver_atlas_use_case_MASLD.html"
                 },
                 {
                     "label": "Liver-REVEAL",
