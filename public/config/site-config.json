@@ -17,7 +17,7 @@
             "submenu": [
                 {
                     "label": "About the Portal",
-                    "path": "#"
+                    "path": "/about.html?page=about"
                 },
                 {
                     "label": "Consortium",
@@ -25,7 +25,7 @@
                 },
                 {
                     "label": "Governance",
-                    "path": "#"
+                    "path": "/about.html?page=governance"
                 }
             ]
         },
