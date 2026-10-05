@@ -17,7 +17,7 @@
             "submenu": [
                 {
                     "label": "About the Portal",
-                    "path": "#"
+                    "path": "/about.html?page=about"
                 },
                 {
                     "label": "Consortium",
@@ -25,7 +25,7 @@
                 },
                 {
                     "label": "Governance",
-                    "path": "#"
+                    "path": "/about.html?page=governance"
                 }
             ]
         },
@@ -87,27 +87,11 @@
                     "path": "#"
                 },
                 {
-                    "label": "Ontologies",
-                    "path": "#"
-                },
-                {
-                    "label": "Standards",
-                    "path": "#"
-                },
-                {
                     "label": "APIs",
                     "path": "#"
                 },
                 {
                     "label": "Workflows",
-                    "path": "#"
-                },
-                {
-                    "label": "Controlled Vocabulary",
-                    "path": "#"
-                },
-                {
-                    "label": "Core Entities",
                     "path": "#"
                 }
             ]
@@ -117,10 +101,6 @@
             "submenu": [
                 {
                     "label": "Publications",
-                    "path": "#"
-                },
-                {
-                    "label": "Events",
                     "path": "#"
                 },
                 {
@@ -136,10 +116,6 @@
         {
             "label": "Help",
             "submenu": [
-                {
-                    "label": "Tutorials",
-                    "path": "#"
-                },
                 {
                     "label": "Documentation",
                     "path": "https://knowledge-portal-network.gitbook.io/knowledge-portal-network-docs/5lsQ2czOVhDBVTAi0MCc"
