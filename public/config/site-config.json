@@ -59,7 +59,7 @@
             "submenu": [
                 {
                     "label": "Use Cases",
-                    "path": "/liver_atlas_use_case_MASLD.html"
+                    "path": "https://knowledge-portal-network.gitbook.io/knowledge-portal-network-docs/5lsQ2czOVhDBVTAi0MCc/use-case-single-cell-and-spatial-data-integration"
                 },
                 {
                     "label": "Liver-REVEAL",
